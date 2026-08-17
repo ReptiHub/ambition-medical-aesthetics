@@ -426,4 +426,37 @@
       closePanel();
     });
   })();
+
+  /* ---------- Cookie consent ---------- */
+  (function () {
+    var KEY = 'ambition-cookie-consent';
+    if (localStorage.getItem(KEY)) return; // already chosen
+
+    var base = location.pathname.indexOf('/blog/') !== -1 ? '../' : '';
+    var bar = document.createElement('div');
+    bar.className = 'cookiebar';
+    bar.setAttribute('role', 'dialog');
+    bar.setAttribute('aria-label', 'Cookie preferences');
+    bar.innerHTML =
+      '<p class="cookiebar__text">We use cookies to improve your experience. See our <a href="' + base + 'privacy.html">Privacy Policy</a>.</p>' +
+      '<div class="cookiebar__actions">' +
+        '<button type="button" class="cookiebar__btn cookiebar__btn--reject">Reject All</button>' +
+        '<button type="button" class="cookiebar__btn cookiebar__btn--accept">Accept All</button>' +
+      '</div>';
+    document.body.appendChild(bar);
+
+    function choose(value) {
+      localStorage.setItem(KEY, value);
+      document.body.classList.remove('cookiebar-visible');
+      bar.classList.remove('is-visible');
+      setTimeout(function () { bar.remove(); }, 500);
+    }
+    bar.querySelector('.cookiebar__btn--reject').addEventListener('click', function () { choose('rejected'); });
+    bar.querySelector('.cookiebar__btn--accept').addEventListener('click', function () { choose('accepted'); });
+
+    requestAnimationFrame(function () {
+      document.body.classList.add('cookiebar-visible');
+      bar.classList.add('is-visible');
+    });
+  })();
 })();
