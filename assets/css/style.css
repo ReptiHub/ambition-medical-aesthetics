@@ -1552,7 +1552,7 @@ body.concierge-open .concierge-panel {
   color: var(--ivory);
   border-top: 1px solid var(--line-dark);
   padding: 1rem clamp(1.1rem, 4vw, 1.8rem);
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.6rem;
   transform: translateY(110%);
   transition: transform .5s var(--ease);
 }
@@ -1576,8 +1576,8 @@ body.concierge-open .concierge-panel {
 .cookiebar__btn--accept:hover { background: var(--gold-2); }
 body.cookiebar-visible .concierge-fab { bottom: calc(clamp(1.1rem, 4vw, 1.8rem) + 64px); transition: bottom .4s var(--ease), transform .35s var(--ease); }
 @media (max-width: 640px) {
-  .cookiebar { flex-direction: column; align-items: stretch; text-align: center; }
-  .cookiebar__text { white-space: normal; }
+  .cookiebar { flex-direction: column; align-items: stretch; text-align: center; padding: .85rem 1rem; gap: .7rem; }
+  .cookiebar__text { font-size: .68rem; }
   .cookiebar__actions { justify-content: center; }
   body.cookiebar-visible .concierge-fab { bottom: calc(clamp(1.1rem, 4vw, 1.8rem) + 104px); }
 }
