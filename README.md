@@ -101,7 +101,24 @@ Forms post to [FormSubmit](https://formsubmit.co) (free, no account) addressed t
 
 Prefer your own booking system (e.g. your existing GHL calendar, Calendly, Square)? Just change the `action=` URL on the form in `contact.html`, or replace the form with an embed.
 
-## ⚠️ One placeholder still needs real content before launch
+## ⚠️ Before launch — required
+
+### 1. The site is on an indexing hold
+
+Every one of the 14 pages ships with `<meta name="robots" content="noindex,nofollow">`, and `robots.txt` is set to `Disallow: /`. **The owner has not reviewed the site yet**, and until they have — and until the review placeholders below are replaced — nothing here should be indexed by Google or cited by an AI assistant.
+
+**To release the hold on approval:**
+
+1. Remove the `<meta name="robots" content="noindex,nofollow">` line from all 14 pages (it sits directly above the `<link rel="canonical">` tag on each):
+   ```bash
+   perl -i -ne 'print unless /name="robots" content="noindex,nofollow"/' *.html blog/*.html
+   ```
+2. In `robots.txt`, delete the HOLD block and uncomment the allow list beneath it.
+3. Only then submit the sitemap to Search Console (see the after-launch checklist below).
+
+Releasing the hold before step 2 of this list is done means Google indexes invented testimonials.
+
+### 2. Sample review quotes must be replaced
 
 The **"Real People. Real Results."** section on the homepage ships with sample review quotes (marked with an HTML comment in `index.html`). Replace each quote/name with a **real Google review**, and make sure the 5.0 badge reflects your actual current Google rating — publishing invented testimonials violates FTC rules. The "Read Our Reviews" button already links to your Google Maps listing.
 
