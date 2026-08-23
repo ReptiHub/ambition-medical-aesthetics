@@ -1,18 +1,27 @@
 # ─────────────────────────────────────────────────────────────
-# HOLD — the owner has not reviewed this site yet.
-# Every page also ships <meta name="robots" content="noindex,nofollow">.
+# HOLD — the owner has not reviewed this site yet, and this is a
+# demo. Every page ships <meta name="robots" content="noindex,nofollow">.
 #
-# ON APPROVAL: delete this block, restore the AI-crawler allow list
-# below it, and remove the robots meta tag from all 14 pages.
+# Crawling is deliberately ALLOWED. That looks wrong and is not:
+# Google's documentation is explicit that "for the noindex rule to
+# be effective, the page or resource must not be blocked by a
+# robots.txt file, and it has to be otherwise accessible to the
+# crawler", and that a blocked page "can still appear in search
+# results, for example if other pages link to it".
+#
+# This site was live and fully indexable before the hold reached
+# GitHub, so it may already be known. Disallowing now would stop
+# the recrawl that is needed to see the noindex and drop it.
+# Let it be crawled, let the noindex do the work.
+#
+# ON APPROVAL: delete this block, remove the robots meta tag from
+# all 14 pages, and restore the AI-crawler allow list below.
 # ─────────────────────────────────────────────────────────────
 
 User-agent: *
-Disallow: /
+Allow: /
 
 # ── Restore everything below on approval ─────────────────────
-#
-# User-agent: *
-# Allow: /
 #
 # # AI crawlers — explicitly welcome
 # User-agent: GPTBot
