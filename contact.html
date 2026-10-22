@@ -73,10 +73,7 @@
         <div class="orn" aria-hidden="true"><svg viewBox="0 0 92 18" fill="none"><path d="M0 9h33M59 9h33" stroke="currentColor" stroke-width="1"/><path d="M46 2.5l4.8 6.5-4.8 6.5-4.8-6.5z" stroke="currentColor" stroke-width="1"/><circle cx="46" cy="9" r="1.5" fill="currentColor"/></svg></div>
         <p class="kicker rv">Book Now</p>
         <h2 class="rv rv-d1" style="margin-block:1.2rem 2rem">Request your <em>appointment.</em></h2>
-        <form class="form rv rv-d2" action="https://formsubmit.co/ambitionmedicalaesthetics@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="New consultation request — ambitionmedicalaesthetics.com">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" style="display:none">
+        <form class="form rv rv-d2" id="demo-form" onsubmit="return false">
           <div class="form__row">
             <div><label for="fn">First Name *</label><input id="fn" name="first_name" type="text" required autocomplete="given-name"></div>
             <div><label for="ln">Last Name *</label><input id="ln" name="last_name" type="text" required autocomplete="family-name"></div>
@@ -102,8 +99,9 @@
             <textarea id="msg" name="goal" required placeholder="Tell us in a sentence or two…"></textarea>
           </div>
           <button class="btn btn--noir btn--wide" type="submit">Submit Request</button>
-          <p style="font-size:.78rem;color:var(--taupe)">By submitting, you agree to be contacted about your request. We never share your information.</p>
+          <p id="demo-note" role="status" aria-live="polite" style="font-size:.78rem;color:var(--taupe)">Demonstration site: this form does not send messages.</p>
         </form>
+        <script>document.getElementById('demo-form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('demo-note').textContent='Thank you. This is a demonstration site, so your request was not sent.';});</script>
       </div>
     </div>
   </section>

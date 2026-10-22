@@ -97,7 +97,7 @@ To do it yourself:
 
 ## One thing to activate: the contact form
 
-Forms post to [FormSubmit](https://formsubmit.co) (free, no account) addressed to `ambitionmedicalaesthetics@gmail.com`. The **first** submission after going live sends a confirmation email to that inbox — click "Activate" once and all future submissions arrive by email.
+**Review copy:** in this version the contact form is deliberately disabled and sends nothing, so test submissions cannot reach the client. At launch, restore the original `<form>` element from git history (`git log -p -- contact.html`) and have the owner activate FormSubmit (the first submission sends them an activation email).
 
 Prefer your own booking system (e.g. your existing GHL calendar, Calendly, Square)? Just change the `action=` URL on the form in `contact.html`, or replace the form with an embed.
 
